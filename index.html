@@ -25,6 +25,10 @@
             --overlay: rgba(30, 41, 59, 0.85);
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -114,6 +118,13 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        #home {
+            min-height: 100vh;
         }
         
         .section-with-bg::before {
@@ -130,6 +141,8 @@
         .section-content {
             position: relative;
             z-index: 2;
+            width: 100%;
+            padding: 80px 0;
         }
         
         .section-content h2, 
@@ -153,19 +166,21 @@
         }
         
         /* Hero Section - Developer Theme */
-        .hero {
-            padding: 180px 0 100px;
+        #home {
             background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.95)), 
-                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
+            display: flex;
+            align-items: center;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 100px 0 50px;
         }
         
         .hero-text h1 {
@@ -193,6 +208,10 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        .hero-buttons {
+            margin: 30px 0;
         }
         
         .tech-icons {
@@ -605,6 +624,58 @@
             font-weight: 500;
         }
         
+        /* Contact Section */
+        #contact-section {
+            background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark-color);
@@ -737,8 +808,8 @@
                 display: block;
             }
             
-            .hero {
-                padding: 150px 0 80px;
+            .hero-content {
+                padding: 120px 0 50px;
             }
             
             .hero-text h1 {
@@ -770,11 +841,16 @@
             .tech-icon i {
                 font-size: 1.5rem;
             }
+            
+            .hero-buttons .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
         }
         
         @media (max-width: 576px) {
-            .hero {
-                padding: 130px 0 60px;
+            .hero-content {
+                padding: 100px 0 30px;
             }
             
             .hero-text h1 {
@@ -793,10 +869,18 @@
                 padding: 20px;
             }
             
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 15px;
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .hero-buttons .btn {
                 display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .hero-buttons .btn-outline {
+                margin-left: 0;
             }
         }
     </style>
@@ -806,7 +890,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Abilash<span>S</span></a>
+                <a href="#home" class="logo">Abilash<span>S</span></a>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -815,6 +899,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact-section">Contact</a></li>
                 </ul>
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -824,15 +909,18 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero section-with-bg">
+    <section id="home" class="section-with-bg">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Abilash <span class="highlight">S</span></h1>
                     <h2>Software & Web Developer</h2>
                     <p>BCA graduate with expertise in Python, Web Development, and full-stack solutions. Passionate about creating efficient, scalable software that solves real-world problems.</p>
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View My Projects</a>
+                        <a href="#contact-section" class="btn btn-outline">Contact Me</a>
+                    </div>
                     
                     <div class="tech-icons">
                         <div class="tech-icon">
@@ -854,6 +942,10 @@
                         <div class="tech-icon">
                             <i class="fas fa-database"></i>
                             <span>SQL</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
                         </div>
                     </div>
                 </div>
@@ -1104,8 +1196,38 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact-section" class="section-with-bg">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -1121,23 +1243,23 @@
                         <a href="tel:+919994613933" title="Phone">
                             <i class="fas fa-phone-alt"></i>
                         </a>
-                        <a href="#" title="GitHub">
+                        <a href="https://github.com" target="_blank" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <div class="contact-item" style="background: transparent; border: none; padding: 0; color: #cbd5e1;">
+                    <div class="contact-info" style="display: block; grid-template-columns: none; gap: 0;">
+                        <div class="contact-item" style="background: transparent; border: none; padding: 0; margin-bottom: 10px; color: #cbd5e1;">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>64/4 Vasavi Nagar, Dharapuram Road, Udumalpet, Tamil Nadu, India - 642126</span>
+                            <span>Udumalpet, Tamil Nadu, India</span>
                         </div>
-                        <div class="contact-item" style="background: transparent; border: none; padding: 0; color: #cbd5e1;">
+                        <div class="contact-item" style="background: transparent; border: none; padding: 0; margin-bottom: 10px; color: #cbd5e1;">
                             <i class="fas fa-phone-alt"></i>
                             <span>+91 9994613933</span>
                         </div>
-                        <div class="contact-item" style="background: transparent; border: none; padding: 0; color: #cbd5e1;">
+                        <div class="contact-item" style="background: transparent; border: none; padding: 0; margin-bottom: 10px; color: #cbd5e1;">
                             <i class="fas fa-envelope"></i>
                             <span>abilash999461@gmail.com</span>
                         </div>
@@ -1145,17 +1267,17 @@
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <ul class="skill-list" style="color: #cbd5e1;">
+                    <ul class="skill-list" style="color: #cbd5e1; list-style: none; padding-left: 0;">
                         <li><a href="#home" style="color: #cbd5e1; text-decoration: none;">Home</a></li>
                         <li><a href="#about" style="color: #cbd5e1; text-decoration: none;">About</a></li>
                         <li><a href="#skills" style="color: #cbd5e1; text-decoration: none;">Skills</a></li>
-                        <li><a href="#education" style="color: #cbd5e1; text-decoration: none;">Education</a></li>
                         <li><a href="#projects" style="color: #cbd5e1; text-decoration: none;">Projects</a></li>
+                        <li><a href="#contact-section" style="color: #cbd5e1; text-decoration: none;">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Abilash S. All Rights Reserved. | Designed for Software Development Portfolio</p>
+                <p>&copy; 2025 Abilash S. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1176,33 +1298,39 @@
             });
         });
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:abilash999461@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Thank you for your message! Your email client will open.');
         });
         
         // Add active class to nav links on scroll
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section');
+            const navHeight = document.querySelector('header').offsetHeight;
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
+                const sectionTop = section.offsetTop - navHeight - 100;
                 const sectionHeight = section.clientHeight;
-                if(scrollY >= (sectionTop - 100)) {
+                if(scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
