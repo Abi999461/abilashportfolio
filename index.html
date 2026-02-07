@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abilash S - Portfolio</title>
+    <title>Abilash S - Software Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -68,6 +68,10 @@
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--dark-color);
         }
         
         .nav-links {
@@ -148,31 +152,26 @@
             background-color: var(--accent-color);
         }
         
-        /* Hero Section */
+        /* Hero Section - Developer Theme */
         .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
-                        url('C:\Users\Bijumol OP\Pictures\family');
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.95)), 
+                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
+            text-align: center;
         }
         
         .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        
-        .hero-text {
-            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero-text h1 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: white;
         }
         
@@ -183,13 +182,49 @@
         .hero-text h2 {
             color: #e2e8f0;
             font-weight: 400;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
         }
         
         .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
             color: #cbd5e1;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-icon {
+            background: rgba(59, 130, 246, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            background: rgba(59, 130, 246, 0.3);
+        }
+        
+        .tech-icon i {
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
         
         .btn {
@@ -216,25 +251,12 @@
             background-color: transparent;
             border: 2px solid var(--accent-color);
             color: var(--accent-color);
+            margin-left: 15px;
         }
         
         .btn-outline:hover {
             background-color: var(--accent-color);
             color: white;
-        }
-        
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .profile-img {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid rgba(255, 255, 255, 0.2);
-            box-shadow: var(--shadow);
         }
         
         /* Section Styling */
@@ -262,10 +284,10 @@
             border-radius: 2px;
         }
         
-        /* About Section */
+        /* About Section - Teamwork Theme */
         #about {
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
-                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -289,6 +311,9 @@
         
         .contact-info {
             margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
         
         .contact-item {
@@ -296,6 +321,10 @@
             align-items: center;
             margin-bottom: 15px;
             color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
         }
         
         .contact-item i {
@@ -305,10 +334,10 @@
             width: 24px;
         }
         
-        /* Skills Section */
+        /* Skills Section - Code Theme */
         #skills {
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
-                        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -327,6 +356,12 @@
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
         }
         
         .skill-category h3 {
@@ -353,7 +388,7 @@
             color: var(--accent-color);
         }
         
-        /* Education Section */
+        /* Education Section - Learning Theme */
         #education {
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
@@ -362,10 +397,10 @@
             background-attachment: fixed;
         }
         
-        /* Experience Section */
+        /* Experience Section - Office Theme */
         #experience {
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
-                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -458,10 +493,10 @@
             top: 15px;
         }
         
-        /* Projects Section */
+        /* Projects Section - Development Theme */
         #projects {
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
-                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -488,6 +523,12 @@
             border-color: rgba(59, 130, 246, 0.5);
         }
         
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
         .project-info {
             padding: 25px;
         }
@@ -503,10 +544,25 @@
             margin-bottom: 15px;
         }
         
-        /* Certifications Section */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        /* Certifications Section - Achievement Theme */
         #certifications {
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), 
-                        url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -613,17 +669,17 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
             .hero-text h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
-            .about-content {
-                flex-direction: column;
+            .tech-icons {
+                gap: 20px;
+            }
+            
+            .tech-icon {
+                width: 70px;
+                height: 70px;
             }
             
             .timeline::after {
@@ -681,8 +737,16 @@
                 display: block;
             }
             
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
             .hero-text h1 {
-                font-size: 2.4rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.5rem;
             }
             
             .section-title {
@@ -692,15 +756,33 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .tech-icons {
+                gap: 15px;
+            }
+            
+            .tech-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 0.8rem;
+            }
+            
+            .tech-icon i {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 576px) {
             .hero {
-                padding: 120px 0 70px;
+                padding: 130px 0 60px;
             }
             
             .hero-text h1 {
                 font-size: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.2rem;
             }
             
             section {
@@ -710,6 +792,12 @@
             .skill-category, .cert-card, .project-card, .timeline-content {
                 padding: 20px;
             }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
         }
     </style>
 </head>
@@ -718,7 +806,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Abilash S</a>
+                <a href="#" class="logo">Abilash<span>S</span></a>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -740,18 +828,33 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Hi, I'm <span class="highlight">Abilash S</span></h1>
-                    <h2>Aspiring Software & Web Developer</h2>
-                    <p>BCA graduate with strong communication skills and a passion for creating efficient, scalable software solutions. Eager to contribute to a dynamic team and enhance my skills in a real-world development environment.</p>
-                    <a href="#contact" class="btn">Contact Me</a>
-                    <a href="#projects" class="btn btn-outline" style="margin-left: 15px;">View Projects</a>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-img-placeholder">
-                        <svg class="profile-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="45" fill="rgba(59, 130, 246, 0.2)"/>
-                            <path d="M50 30c-8.28 0-15 6.72-15 15s6.72 15 15 15 15-6.72 15-15-6.72-15-15-15zm0 40c-11.05 0-20 8.95-20 20h40c0-11.05-8.95-20-20-20z" fill="#3b82f6"/>
-                        </svg>
+                    <h1>Abilash <span class="highlight">S</span></h1>
+                    <h2>Software & Web Developer</h2>
+                    <p>BCA graduate with expertise in Python, Web Development, and full-stack solutions. Passionate about creating efficient, scalable software that solves real-world problems.</p>
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -765,9 +868,9 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I am a recent BCA graduate from Vidyasagar College of Arts and Science, Udumalpet, with a strong foundation in computer applications and software development. My academic journey has equipped me with knowledge in various programming languages and web technologies.</p>
-                        <p>I'm passionate about creating efficient and scalable software solutions that solve real-world problems. During my internship at Sun Software Solutions, I gained hands-on experience in full-stack Python development, working with technologies like Flask, Django, HTML, CSS, JavaScript, and SQL.</p>
-                        <p>My career objective is to contribute to a dynamic development team where I can apply my technical skills, continue learning, and grow as a software professional.</p>
+                        <p>I am a dedicated BCA graduate from Vidyasagar College of Arts and Science, Udumalpet, with strong foundations in computer science and software development. My academic journey has equipped me with comprehensive knowledge in programming languages, web technologies, and software engineering principles.</p>
+                        <p>During my internship at Sun Software Solutions, I gained hands-on experience in full-stack Python development, working with modern frameworks like Flask and Django. I'm passionate about creating efficient, scalable software solutions that address real-world challenges and improve user experiences.</p>
+                        <p>I thrive in collaborative environments and am constantly seeking opportunities to learn new technologies and methodologies. My goal is to contribute to innovative projects while growing as a software professional in a dynamic development team.</p>
                         
                         <div class="contact-info">
                             <div class="contact-item">
@@ -780,7 +883,7 @@
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Udumalpet, Tamil Nadu, India</span>
+                                <span>Udumalpet, Tamil Nadu</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-language"></i>
@@ -811,45 +914,47 @@
                     <div class="skill-category">
                         <h3>Web Development</h3>
                         <ul class="skill-list">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript (Basic)</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
                             <li>jQuery & Bootstrap</li>
+                            <li>Responsive Design</li>
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Databases & Tools</h3>
+                        <h3>Frameworks & Tools</h3>
                         <ul class="skill-list">
-                            <li>SQL (Basic)</li>
-                            <li>Data Management Tools</li>
-                            <li>VS Code, PyCharm</li>
-                            <li>Git, MS Office</li>
+                            <li>Flask & Django</li>
+                            <li>Git & GitHub</li>
+                            <li>VS Code & PyCharm</li>
+                            <li>Agile Methodology</li>
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Software Development</h3>
+                        <h3>Databases & Testing</h3>
                         <ul class="skill-list">
+                            <li>SQL & RDBMS</li>
+                            <li>Data Management</li>
+                            <li>PyTest & JUnit</li>
                             <li>Debugging</li>
-                            <li>Unit Testing (PyTest, JUnit)</li>
-                            <li>Socket Programming</li>
-                            <li>Agile Basics</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div style="margin-top: 50px;">
-                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--accent-color);">Soft Skills</h3>
+                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--accent-color);">Professional Skills</h3>
                     <div class="skills-container">
                         <div class="skill-category">
                             <ul class="skill-list">
                                 <li>Communication & Teamwork</li>
-                                <li>Problem-Solving & Adaptability</li>
+                                <li>Problem-Solving & Analytical Thinking</li>
+                                <li>Project Management</li>
                             </ul>
                         </div>
                         <div class="skill-category">
                             <ul class="skill-list">
-                                <li>Leadership & Critical Thinking</li>
+                                <li>Adaptability & Learning Agility</li>
                                 <li>Attention to Detail</li>
+                                <li>Critical Thinking</li>
                             </ul>
                         </div>
                     </div>
@@ -868,16 +973,18 @@
                         <div class="timeline-content">
                             <h3>Bachelor of Computer Application (BCA)</h3>
                             <span class="date">2022 - 2025</span>
-                            <p>Vidyasagar College of Arts and Science, Udumalpet</p>
-                            <p>CGPA: 72%</p>
+                            <p><strong>Vidyasagar College of Arts and Science, Udumalpet</strong></p>
+                            <p>CGPA: 72% | Specialization in Software Development</p>
+                            <p>Relevant Coursework: Data Structures, Algorithms, Web Technologies, Database Management, Software Engineering</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <h3>Higher Secondary School Certificate (HSC)</h3>
                             <span class="date">2019</span>
-                            <p>Stella Maris Matriculation Hr. Sec School, Udumalpet</p>
-                            <p>Score: 70%</p>
+                            <p><strong>Stella Maris Matriculation Hr. Sec School, Udumalpet</strong></p>
+                            <p>Score: 70% | Computer Science Stream</p>
+                            <p>Foundation in programming concepts and computer fundamentals</p>
                         </div>
                     </div>
                 </div>
@@ -894,15 +1001,15 @@
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <h3>Full Stack Python Intern</h3>
-                            <span class="date">14 Jan 2025 - 26 Feb 2025</span>
-                            <p><strong>Sun Software Solutions, Coimbatore</strong></p>
-                            <p>Grade: B</p>
+                            <span class="date">January 2025 - February 2025</span>
+                            <p><strong>Sun Software Solutions, Coimbatore</strong> | Grade: B</p>
                             <ul style="margin-top: 10px; padding-left: 20px;">
-                                <li>Introduction to Python & RDBMS</li>
-                                <li>Web Technology Introduction</li>
-                                <li>HTML, CSS, JavaScript, jQuery & Bootstrap</li>
-                                <li>Python & Data Science Basics</li>
-                                <li>Frameworks: Flask & Django</li>
+                                <li>Developed and maintained web applications using Python, Flask, and Django</li>
+                                <li>Implemented responsive front-end interfaces with HTML, CSS, JavaScript, and Bootstrap</li>
+                                <li>Designed and optimized database schemas using SQL and relational databases</li>
+                                <li>Collaborated with team members using Git for version control</li>
+                                <li>Participated in Agile development processes and code reviews</li>
+                                <li>Gained hands-on experience with Python data science libraries and tools</li>
                             </ul>
                         </div>
                     </div>
@@ -918,17 +1025,49 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="project-info">
                             <h3>Salon Shop Management System</h3>
-                            <p>Designed and developed a complete platform for managing salon operations including appointments, inventory, and customer records.</p>
+                            <p>A comprehensive platform for managing salon operations including appointments, inventory, customer records, and billing.</p>
                             <p><strong>Key Features:</strong></p>
                             <ul style="padding-left: 20px; margin-top: 10px;">
-                                <li>Automated appointment scheduling</li>
-                                <li>Inventory management system</li>
-                                <li>Customer records and history</li>
-                                <li>Billing and payment tracking</li>
+                                <li>Automated appointment scheduling system</li>
+                                <li>Real-time inventory tracking and management</li>
+                                <li>Customer history and preferences database</li>
+                                <li>Integrated billing and payment processing</li>
+                                <li>Staff management and performance analytics</li>
                             </ul>
-                            <p style="margin-top: 15px;"><strong>Impact:</strong> Increased operational efficiency and reduced manual work by 40%.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <p style="margin-top: 15px;"><strong>Impact:</strong> Increased operational efficiency by 40% and reduced manual work significantly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="project-info">
+                            <h3>E-commerce Website</h3>
+                            <p>A fully functional e-commerce platform with product catalog, shopping cart, and user authentication system.</p>
+                            <p><strong>Key Features:</strong></p>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>User authentication and profile management</li>
+                                <li>Product catalog with search and filtering</li>
+                                <li>Shopping cart and checkout system</li>
+                                <li>Order tracking and history</li>
+                                <li>Admin dashboard for inventory management</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -944,17 +1083,20 @@
                 <div class="cert-grid">
                     <div class="cert-card">
                         <h3>Artificial Intelligence for All</h3>
-                        <p><strong>Issued by:</strong> Infosys</p>
+                        <p><strong>Issued by:</strong> Infosys Springboard</p>
+                        <p>Comprehensive understanding of AI fundamentals, machine learning concepts, and practical applications.</p>
                         <span class="date">May 2025</span>
                     </div>
                     <div class="cert-card">
                         <h3>Generative AI for All</h3>
-                        <p><strong>Issued by:</strong> Infosys</p>
+                        <p><strong>Issued by:</strong> Infosys Springboard</p>
+                        <p>In-depth knowledge of generative AI models, applications, and ethical considerations in AI development.</p>
                         <span class="date">May 2025</span>
                     </div>
                     <div class="cert-card">
                         <h3>Reliance Foundation Workshop</h3>
-                        <p><strong>Issued by:</strong> Magicbus</p>
+                        <p><strong>Issued by:</strong> Magicbus India Foundation</p>
+                        <p>Professional development workshop focusing on career skills, communication, and industry readiness.</p>
                         <span class="date">January 2025</span>
                     </div>
                 </div>
@@ -970,23 +1112,32 @@
                     <h3>Abilash S</h3>
                     <p>Aspiring software developer and web developer with a BCA degree. Passionate about creating efficient and scalable software solutions.</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/abilash-s-a75383290" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:abilash999461@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="tel:+919994613933"><i class="fas fa-phone-alt"></i></a>
+                        <a href="https://www.linkedin.com/in/abilash-s-a75383290" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:abilash999461@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+919994613933" title="Phone">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                        <a href="#" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <div class="contact-info">
-                        <div class="contact-item" style="color: #cbd5e1;">
+                        <div class="contact-item" style="background: transparent; border: none; padding: 0; color: #cbd5e1;">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>64/4 Vasavi Nagar, Dharapuram Road, Udumalpet, Tamil Nadu, India</span>
+                            <span>64/4 Vasavi Nagar, Dharapuram Road, Udumalpet, Tamil Nadu, India - 642126</span>
                         </div>
-                        <div class="contact-item" style="color: #cbd5e1;">
+                        <div class="contact-item" style="background: transparent; border: none; padding: 0; color: #cbd5e1;">
                             <i class="fas fa-phone-alt"></i>
                             <span>+91 9994613933</span>
                         </div>
-                        <div class="contact-item" style="color: #cbd5e1;">
+                        <div class="contact-item" style="background: transparent; border: none; padding: 0; color: #cbd5e1;">
                             <i class="fas fa-envelope"></i>
                             <span>abilash999461@gmail.com</span>
                         </div>
@@ -1004,7 +1155,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Abilash S. All Rights Reserved.</p>
+                <p>&copy; 2025 Abilash S. All Rights Reserved. | Designed for Software Development Portfolio</p>
             </div>
         </div>
     </footer>
