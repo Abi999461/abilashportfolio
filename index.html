@@ -118,13 +118,6 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        #home {
-            min-height: 100vh;
         }
         
         .section-with-bg::before {
@@ -141,8 +134,6 @@
         .section-content {
             position: relative;
             z-index: 2;
-            width: 100%;
-            padding: 80px 0;
         }
         
         .section-content h2, 
@@ -167,20 +158,27 @@
         
         /* Hero Section - Developer Theme */
         #home {
+            padding: 180px 0 100px;
             background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.95)), 
                         url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            position: relative;
+        }
+        
+        /* FIX: Add padding top to account for fixed header */
+        #home .container {
+            padding-top: 60px;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 100px 0 50px;
         }
         
         .hero-text h1 {
@@ -808,8 +806,12 @@
                 display: block;
             }
             
-            .hero-content {
-                padding: 120px 0 50px;
+            #home {
+                padding: 150px 0 80px;
+            }
+            
+            #home .container {
+                padding-top: 40px;
             }
             
             .hero-text h1 {
@@ -849,8 +851,12 @@
         }
         
         @media (max-width: 576px) {
-            .hero-content {
-                padding: 100px 0 30px;
+            #home {
+                padding: 120px 0 60px;
+            }
+            
+            #home .container {
+                padding-top: 30px;
             }
             
             .hero-text h1 {
@@ -1340,6 +1346,32 @@
                 if(link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
                 }
+            });
+        });
+        
+        // Fix for initial home section visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to top on page load to ensure home is visible
+            window.scrollTo(0, 0);
+            
+            // Add scroll offset for fixed header
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        e.preventDefault();
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
     </script>
