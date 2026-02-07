@@ -64,7 +64,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
         .logo {
@@ -111,54 +111,10 @@
             color: var(--dark-color);
         }
         
-        /* Background Image Sections */
-        .section-with-bg {
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-        
-        .section-with-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--overlay);
-            z-index: 1;
-        }
-        
-        .section-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .section-content h2, 
-        .section-content h3, 
-        .section-content p, 
-        .section-content li,
-        .section-content .skill-category,
-        .section-content .timeline-content,
-        .section-content .project-card,
-        .section-content .cert-card {
-            color: white;
-        }
-        
-        .section-content h2, 
-        .section-content h3 {
-            color: white;
-        }
-        
-        .section-content .section-title::after {
-            background-color: var(--accent-color);
-        }
-        
-        /* Hero Section - Developer Theme */
+        /* BACKGROUND FIX: Home section - make it the first visible element */
         #home {
-            padding: 180px 0 100px;
+            padding-top: 120px; /* Space for fixed header */
+            padding-bottom: 100px;
             background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.95)), 
                         url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -169,16 +125,18 @@
             display: flex;
             align-items: center;
             position: relative;
+            margin-top: 0;
         }
         
-        /* FIX: Add padding top to account for fixed header */
-        #home .container {
-            padding-top: 60px;
+        /* Remove the overlay from home section since we have gradient */
+        #home::before {
+            display: none;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 40px 0;
         }
         
         .hero-text h1 {
@@ -276,9 +234,50 @@
             color: white;
         }
         
-        /* Section Styling */
-        section {
-            padding: 80px 0;
+        /* Background Image Sections (other than home) */
+        .section-with-bg {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+        }
+        
+        .section-with-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay);
+            z-index: 1;
+        }
+        
+        .section-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-content h2, 
+        .section-content h3, 
+        .section-content p, 
+        .section-content li,
+        .section-content .skill-category,
+        .section-content .timeline-content,
+        .section-content .project-card,
+        .section-content .cert-card {
+            color: white;
+        }
+        
+        .section-content h2, 
+        .section-content h3 {
+            color: white;
+        }
+        
+        .section-content .section-title::after {
+            background-color: var(--accent-color);
         }
         
         .section-title {
@@ -738,6 +737,10 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
+            #home {
+                padding-top: 100px;
+            }
+            
             .hero-text h1 {
                 font-size: 3rem;
             }
@@ -777,14 +780,14 @@
         
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 0;
+                padding: 10px 0;
             }
             
             .nav-links {
                 position: fixed;
                 background-color: rgba(255, 255, 255, 0.95);
                 width: 100%;
-                top: 70px;
+                top: 60px;
                 left: -100%;
                 flex-direction: column;
                 align-items: center;
@@ -807,11 +810,8 @@
             }
             
             #home {
-                padding: 150px 0 80px;
-            }
-            
-            #home .container {
-                padding-top: 40px;
+                padding-top: 80px;
+                padding-bottom: 60px;
             }
             
             .hero-text h1 {
@@ -852,11 +852,8 @@
         
         @media (max-width: 576px) {
             #home {
-                padding: 120px 0 60px;
-            }
-            
-            #home .container {
-                padding-top: 30px;
+                padding-top: 70px;
+                padding-bottom: 40px;
             }
             
             .hero-text h1 {
@@ -867,7 +864,7 @@
                 font-size: 1.2rem;
             }
             
-            section {
+            .section-with-bg {
                 padding: 60px 0;
             }
             
@@ -914,8 +911,8 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="section-with-bg">
+    <!-- Hero Section - This is now FIRST and VISIBLE -->
+    <section id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -1327,16 +1324,44 @@
             alert('Thank you for your message! Your email client will open.');
         });
         
+        // Smooth scrolling with header offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Calculate header height
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    
+                    // Calculate target position
+                    let targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    // For home section, scroll to top
+                    if(targetId === '#home') {
+                        targetPosition = 0;
+                    }
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
         // Add active class to nav links on scroll
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section');
-            const navHeight = document.querySelector('header').offsetHeight;
+            const headerHeight = document.querySelector('header').offsetHeight;
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - navHeight - 100;
-                const sectionHeight = section.clientHeight;
-                if(scrollY >= sectionTop) {
+                const sectionTop = section.offsetTop - headerHeight - 50;
+                if(window.scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
@@ -1349,31 +1374,10 @@
             });
         });
         
-        // Fix for initial home section visibility
-        document.addEventListener('DOMContentLoaded', function() {
-            // Scroll to top on page load to ensure home is visible
+        // Force scroll to top on page load
+        window.onload = function() {
             window.scrollTo(0, 0);
-            
-            // Add scroll offset for fixed header
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        e.preventDefault();
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const targetPosition = targetElement.offsetTop - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
+        };
     </script>
 </body>
 </html>
